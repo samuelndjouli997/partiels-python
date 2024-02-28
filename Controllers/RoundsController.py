@@ -14,6 +14,7 @@ class RoundsController:
         self.matchController = MatchController()
         self.matchView = MatchView()
         self.roundsView = RoundsView()
+
     def shuffle_players_randomly(self, players):
         """
         Mélange la liste des joueurs de manière aléatoire.
@@ -122,8 +123,9 @@ class RoundsController:
         tournament_id = self.tournamentView.select_tournament(tournaments)
 
         # Charger le tournoi sélectionné
-        selected_tournament = next((tournament for tournament in tournaments if tournament['id'] == tournament_id),
-                                   None)
+        selected_tournament = next((
+            tournament for tournament in tournaments if tournament['id'] == tournament_id
+        ), None)
         if not selected_tournament:
             print("Tournoi non trouvé.")
             return
